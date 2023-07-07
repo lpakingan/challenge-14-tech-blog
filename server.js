@@ -26,8 +26,13 @@ const sess = {
 // add express-session
 app.use(session(sess));
 
+// allows rendering of webpages using handlebars views
+app.engine("handlebars", hbs.engine);
+app.set("view engine", "handlebars");
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use(routes);
 
