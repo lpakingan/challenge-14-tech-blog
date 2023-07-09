@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Tech Blog</title>
+  <link rel="stylesheet" href="../../public/css/jass.css">
+</head>
+
+<body>
+  <header class="display-flex justify-space-between p-2">
+    <h1>
+      The Tech Blog
+    </h1>
+    {{!-- if not logged in, show the user the login button --}}
+    {{#if !logged_in}}
+    <nav>
+        <a href='../homepage.handlebars' id="homepage">Home</a>
+        <a href='../dashboard.handlebars' id="dashboard">Dashboard</a>
+        <a href='../login.handlebars' id="login">Login</a>
+    </nav>
+    {{/if}}
+    {{!-- if logged in, show the user a logout button --}}
+    {{#if logged_in}}
+    <nav>
+        <a href='../homepage.handlebars' id="homepage">Home</a>
+        <a href='../dashboard.handlebars' id="dashboard">Dashboard</a>
+        <a href="../login.handlebars" id="logout">Logout</a>
+    </nav>
+    {{/if}}
+  </header>
+  <main>
+    {{{ body }}}
+  </main>
+  <footer>
+      
+  </footer>
+
+  {{!-- if not logged in, attach the login functionality --}} 
+  {{#if !logged_in}}
+  <script src="/js/login.js"></script>
+  {{/if}}
+
+  {{!-- if logged in, attach the logout functionality --}} 
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+</body>
+
+</html>

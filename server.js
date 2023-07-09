@@ -1,7 +1,10 @@
 // import packages required for establishing cookies/session and running application
+const path = require("path");
 const express = require("express");
 const session = require("express-session");
 const routes = require("./controllers");
+const exphbs = require("express-handlebars");
+const helpers = require("./utils/helpers");
 
 // call in the sequelize object from the config file
 // create SequelizeStore object for storing the user's session
@@ -11,6 +14,9 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 // run app with express and establish port to run app from
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+// call in handlebars to use the templates
+const hbs = exphbs.create({ helpers });
 
 // create session with cookie/parameters then link the session with the store object
 const sess = {
