@@ -1,0 +1,22 @@
+<section class="dashboard-page">
+
+    <div class="container">
+        <div class="row">
+            {{#each userposts as |userpost|}}
+            <div class="card row">
+                <div class="card-header col-md-6">
+                    <a href="./blogpost/{{id}}">
+                    <h2> {{post.post_title}}</h2>
+                    </a>
+                    <h3>{{format_date post.post_date}}</h3>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+    <button class="newPost-button btn-primary"> New Post </button>
+    
+</section>
+
+<script src="../public/js/newPost.js"></script>
