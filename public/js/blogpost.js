@@ -25,7 +25,57 @@ const newPostHandler = async (event) => {
   }
 };
 
-// event listener for getting form information once submit is clicked
+// handles the edit post input for updating existing blog posts
+const editPostHandler = async (event) => {
+  // prevents the browser from sending the form by default so it can instead be rendered by the code below
+  event.preventDefault();
+
+  // gathers the updated post's title and content
+  const updatedTitle = document.querySelector("#updated-post-title").value;
+  const updatedContent = document.querySelector("#updated-post-content").value;
+
+  // if the updated post has a title and content
+  if (updatedTitle && updatedContent) {
+    // send the updated post data to the post route
+    const response = await fetch("/api/post/:id", {
+      method: "PUT",
+      body: JSON.stringify({ updatedTitle, updatedContent }),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    // if update data goes through, replace the current page with the updated dashboard content
+    if (response.ok) {
+      document.location.replace("/dashboard");
+    } else {
+      alert("Failed to update post!");
+    }
+  }
+};
+
+// handles the deleting of a specific blog post
+const deletePostHandler = async (event) => {
+  // fetches the post data to delete
+  const response = await fetch("/api/post/:id", {
+    method: "DELETE",
+  });
+
+  // if the post is successfully deleted, replace the current page with the updated dashboard content
+  if (response.ok) {
+    document.location.replace("/dashboard");
+  } else {
+    alert("Failed to delete post!");
+  }
+};
+
+// event listeners for getting form information once submit is clicked
 document
   .querySelector(".newPost-form")
   .addEventListener("submit", newPostHandler);
+
+document
+  .querySelector(".editPost-form")
+  .addEventListener("submit", editPostHandler);
+
+document
+  .querySelector("#delete-button")
+  .addEventListener("click", deletePostHandler);

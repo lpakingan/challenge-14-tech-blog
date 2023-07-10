@@ -43,12 +43,19 @@ router.delete("/:id", withAuth, async (req, res) => {
 });
 
 // update an existing blog post
-router.post("/", withAuth, async (req, res) => {
+router.post("/:id", withAuth, async (req, res) => {
   try {
-    const updatePost = await BlogPost.update({
-      ...req.body,
-      user_id: req.session.user_id,
-    });
+    const updatePost = await BlogPost.update(
+      {
+        ...req.body,
+        user_id: req.session.user_id,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
 
     res.status(200).json({ updatePost, message: "Successfully updated post!" });
   } catch (error) {
