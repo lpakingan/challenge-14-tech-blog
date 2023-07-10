@@ -1,16 +1,16 @@
 <section class="homepage-page">
 
-    <div class="container">
-        <div class="row">
+    <div class="container display-flex">
+        <div class="box col-12">
             {{#each posts as |post|}}
-            <div class="card row">
-                <div class="card-header col-md-6">
+            <div class="card flex-column">
+                <div class="card-header display-flex justify-space-between">
                     <a href="./blogpost/{{id}}">
                     <h2> {{post.post_title}}</h2>
                     </a>
-                    <h3>Posted by {{user.username}} on {{format_date post.post_date}}</h3>
+                    <p class="my-auto">Posted by {{user.username}} on {{format_date post.post_date}}</p>
                 </div>
-                <div class="card-body">
+                <div class="card-body bg-light" style="flex: 1">
                     <p>{{post.post_content}}</p>
                 </div>
             </div>

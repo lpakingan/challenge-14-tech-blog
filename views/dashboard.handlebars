@@ -1,10 +1,10 @@
 <section class="dashboard-page">
 
-    <div class="container">
-        <div class="row">
+    <div class="container display-flex">
+        <div class="box col-12">
             {{#each userposts as |userpost|}}
-            <div class="card row">
-                <div class="card-header col-md-6">
+            <div class="card flex-column">
+                <div class="card-header display-flex justify-space-between">
                     <a href="./blogpost/{{id}}">
                     <h2> {{post.post_title}}</h2>
                     </a>
@@ -15,7 +15,7 @@
         </div>
     </div>
 
-    <button class="newPost-button btn btn-primary"> New Post </button>
+    <button id='newPost-button' class="btn btn-primary m-5 align-content-center"> New Post </button>
     
 </section>
 

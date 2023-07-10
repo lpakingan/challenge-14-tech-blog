@@ -8,20 +8,20 @@
   <link rel="stylesheet" href="/css/jass.css">
 </head>
 
-<body>
-  <header class="bg-primary text-light">
+<body class="bg-info">
+  <header class="bg-primary text-light p-4 mb-3">
     {{!-- if not logged in, show the user the login button --}}
     {{#if logged_in}}
     <nav>
-        <a href='/' id="homepage">Home</a>
-        <a href='/dashboard' id="dashboard">Dashboard</a>
-        <a href='/login' id="logout">Logout</a>
+        <a href='/' id="homepage" class="pr-5">Home</a>
+        <a href='/dashboard' id="dashboard" class="pr-5">Dashboard</a>
+        <a href='/login' id="logout" class="pr-5">Logout</a>
     </nav>
     {{else}}
     <nav>
-        <a href='/' id="homepage">Home</a>
-        <a href='/dashboard' id="dashboard">Dashboard</a>
-        <a href="/login" id="login">Login</a>
+        <a href='/' id="homepage" class="pr-5">Home</a>
+        <a href='/dashboard' id="dashboard" class="pr-5">Dashboard</a>
+        <a href="/login" id="login" class="pr-5">Login</a>
     </nav>
     {{/if}}
     <h1>
