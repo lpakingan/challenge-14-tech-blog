@@ -13,14 +13,6 @@ Comment.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    // commenter_id references the id of the user that posts it
-    commenter_id: {
-      type: DataTypes.STRING,
-      references: {
-        model: "user",
-        key: "id",
-      },
-    },
     comment_date: {
       type: DataTypes.DATE,
       allowNull: false,
