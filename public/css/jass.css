@@ -420,13 +420,13 @@
   }
   
   a {
-    color: #1b89bc;
+    color: white;
     text-decoration: none;
   }
   
   a:hover {
-    color: #065b83;
-    text-decoration: underline;
+    color: white;
+    zoom: 1.1;
   }
   
   /* HEIGHT / WIDTH UTILS */
@@ -975,7 +975,7 @@
     padding: 0.5rem 1.2rem;
     margin: 0;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.5rem;
     border-radius: 0.3rem;
     border: 1px solid transparent;
     outline: none;
@@ -1704,3 +1704,7 @@
     }
   }
   
+  .box-shadow {
+    box-shadow: 5px 5px gray;
+  }
+

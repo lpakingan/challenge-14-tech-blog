@@ -12,19 +12,19 @@
   <header class="bg-primary text-light p-4 mb-3">
     {{!-- if not logged in, show the user the login button --}}
     {{#if logged_in}}
-    <nav>
+    <nav style="font-size:1.5rem; float:right">
         <a href='/' id="homepage" class="pr-5">Home</a>
         <a href='/dashboard' id="dashboard" class="pr-5">Dashboard</a>
         <a href='/login' id="logout" class="pr-5">Logout</a>
     </nav>
     {{else}}
-    <nav>
+    <nav style="font-size:1.5rem; float:right">
         <a href='/' id="homepage" class="pr-5">Home</a>
         <a href='/dashboard' id="dashboard" class="pr-5">Dashboard</a>
         <a href="/login" id="login" class="pr-5">Login</a>
     </nav>
     {{/if}}
-    <h1>
+    <h1 style="font-size:3rem">
       The Tech Blog
     </h1>
   </header>

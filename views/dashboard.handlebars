@@ -1,23 +1,23 @@
 <section class="dashboard-page">
 
+    <div class="display-flex justify-center m-5">
+        <button class="btn btn-primary" id='newPost-button'> New Post </button>
+    </div>
+
     <div class="container display-flex">
         <div class="box col-12">
             {{#each userposts as |userpost|}}
-            <div class="card flex-column">
+            <a href="/dashboard/edit/{{id}}">
+            <div class="card flex-column box-shadow">
                 <div class="card-header display-flex justify-space-between">
-                    <a href="/dashboard/edit/{{id}}">
                     <h2> {{userpost.post_title}}</h2>
-                    </a>
                     <h3>{{format_date userpost.post_date}}</h3>
                 </div>
             </div>
+            </a>
             {{/each}}
         </div>
     </div>
-
-    <button id='newPost-button' class="btn btn-primary m-5 align-content-center"> New Post </button>
-    
 </section>
 
 <script src="/js/redirect.js"></script>
-<script src="/js/edit/js"></script>

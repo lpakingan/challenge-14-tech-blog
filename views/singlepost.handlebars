@@ -6,7 +6,7 @@
                 <div class="card-header display-flex justify-space-between">
                     <h2> {{post.post_title}}</h2>
                     </a>
-                    <p class="my-auto">Posted by {{user.username}} on {{format_date post.post_date}}</p>
+                    <p class="my-auto">Posted by {{post.user.username}} on {{format_date post.post_date}}</p>
                 </div>
                 <div class="card-body bg-light" style="flex: 1">
                     <p>{{post.post_content}}</p>

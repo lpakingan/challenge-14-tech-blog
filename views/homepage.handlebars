@@ -3,17 +3,17 @@
     <div class="container display-flex">
         <div class="box col-12">
             {{#each posts as |post|}}
-            <div class="card flex-column">
+            <a href="./post/{{id}}">
+            <div class="card flex-column box-shadow">
                 <div class="card-header display-flex justify-space-between">
-                    <a href="./post/{{id}}">
                     <h2> {{post.post_title}}</h2>
-                    </a>
                     <p class="my-auto">Posted by {{user.username}} on {{format_date post.post_date}}</p>
                 </div>
-                <div class="card-body bg-light" style="flex: 1">
+                <div class="card-body bg-light" style="flex: 1; color:black">
                     <p>{{post.post_content}}</p>
                 </div>
             </div>
+            </a>
             {{/each}}
         </div>
     </div>
