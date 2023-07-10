@@ -47,4 +47,4 @@ router.get("/edit/:id", withAuth, async (req, res) => {
   }
 });
 
-moduke.exports = router;
+module.exports = router;
