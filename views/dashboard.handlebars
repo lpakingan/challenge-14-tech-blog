@@ -6,9 +6,9 @@
             <div class="card flex-column">
                 <div class="card-header display-flex justify-space-between">
                     <a href="./blogpost/{{id}}">
-                    <h2> {{post.post_title}}</h2>
+                    <h2> {{userpost.post_title}}</h2>
                     </a>
-                    <h3>{{format_date post.post_date}}</h3>
+                    <h3>{{format_date userpost.post_date}}</h3>
                 </div>
             </div>
             {{/each}}
@@ -19,4 +19,4 @@
     
 </section>
 
-<script src="/js/newPost.js"></script>
+<script src="/js/redirect.js"></script>
