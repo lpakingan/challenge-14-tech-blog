@@ -27,7 +27,7 @@ router.get("/", async (req, res) => {
 });
 
 // gets a single blogpost with id
-router.get("/blogpost/:id", withAuth, async (req, res) => {
+router.get("/post/:id", withAuth, async (req, res) => {
   try {
     const postData = await BlogPost.findByPk(req.params.id, {
       include: [

@@ -1,11 +1,9 @@
-<section class="homepage-page">
+<section class="singlepost-page">
 
     <div class="container display-flex">
         <div class="box col-12">
-            {{#each posts as |post|}}
             <div class="card flex-column">
                 <div class="card-header display-flex justify-space-between">
-                    <a href="./post/{{id}}">
                     <h2> {{post.post_title}}</h2>
                     </a>
                     <p class="my-auto">Posted by {{user.username}} on {{format_date post.post_date}}</p>
@@ -14,7 +12,6 @@
                     <p>{{post.post_content}}</p>
                 </div>
             </div>
-            {{/each}}
         </div>
     </div>
     
