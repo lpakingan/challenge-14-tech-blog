@@ -6,7 +6,8 @@ const editPostHandler = async (event) => {
   // gathers the updated post's title, content, and id
   const updatedTitle = document.querySelector("#updated-post-title").value;
   const updatedContent = document.querySelector("#updated-post-content").value;
-  const post_id = window.location.href[window.location.href.length - 1];
+  const currentPostURL = window.location.href;
+  const post_id = currentPostURL.slice(currentPostURL.lastIndexOf("/") + 1);
 
   // if the updated post has a title and content
   if (updatedTitle && updatedContent) {

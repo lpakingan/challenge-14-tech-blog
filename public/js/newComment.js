@@ -5,7 +5,8 @@ const newCommentHandler = async (event) => {
 
   // gathers the comment's content and indexes into the current url to get the associated post's id
   const content = document.querySelector("#comment-content").value;
-  const post_id = window.location.href[window.location.href.length - 1];
+  const currentPostURL = window.location.href;
+  const post_id = currentPostURL.slice(currentPostURL.lastIndexOf("/") + 1);
 
   // if the comment has text content
   if (content) {
