@@ -14,17 +14,17 @@
       The Tech Blog
     </h1>
     {{!-- if not logged in, show the user the login button --}}
-    {{#if !logged_in}}
+    {{#if logged_in}}
     <nav>
-        <a href='../homepage.handlebars' id="homepage">Home</a>
-        <a href='../dashboard.handlebars' id="dashboard">Dashboard</a>
-        <a href='../login.handlebars' id="login">Login</a>
+        <a href='/' id="homepage">Home</a>
+        <a href='/dashboard' id="dashboard">Dashboard</a>
+        <a href='/login' id="logout">Logout</a>
     </nav>
     {{else}}
     <nav>
-        <a href='../homepage.handlebars' id="homepage">Home</a>
-        <a href='../dashboard.handlebars' id="dashboard">Dashboard</a>
-        <a href="../login.handlebars" id="logout">Logout</a>
+        <a href='/' id="homepage">Home</a>
+        <a href='/dashboard' id="dashboard">Dashboard</a>
+        <a href="/login" id="login">Login</a>
     </nav>
     {{/if}}
   </header>
@@ -36,13 +36,11 @@
   </footer>
 
   {{!-- if not logged in, attach the login functionality --}} 
-  {{#if !logged_in}}
-  <script src="../../public/js/login.js"></script>
-  {{/if}}
-
-  {{!-- if logged in, attach the logout functionality --}} 
   {{#if logged_in}}
   <script src="../../public/js/logout.js"></script>
+  {{else}}
+  {{!-- if logged in, attach the logout functionality --}} 
+  <script src="../../public/js/login.js"></script>
   {{/if}}
 </body>
 
