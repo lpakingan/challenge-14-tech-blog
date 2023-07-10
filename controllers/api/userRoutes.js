@@ -5,15 +5,20 @@ const { User } = require("../../models");
 // create a new user
 router.post("/", async (req, res) => {
   try {
-    const dbUser = await User.create({
+    const newUser = await User.create({
       username: req.body.username,
       password: req.body.password,
     });
 
     req.session.save(() => {
-      req.session.loggedIn = true;
+      req.session.username = newUser.username;
+      req.session.user_id = newUser.id;
+      req.session.logged_in = true;
 
-      res.status(200).json(dbUser);
+      res.status(200).json({
+        user: newUser,
+        message: "Successfully created new user! You are now logged in!",
+      });
     });
   } catch (error) {
     console.log(error);
@@ -22,39 +27,43 @@ router.post("/", async (req, res) => {
 });
 
 // login user by checking if the username exists
-router.post("login", async (req, res) => {
+router.post("/login", async (req, res) => {
   try {
-    const dbUser = await User.findOne({
+    const returningUser = await User.findOne({
       where: {
         username: req.body.username,
       },
     });
 
-    // if the username is not found, tell user it is either incorrect or does not exist
-    if (!dbUser) {
+    // if the username is not found, tell user they have the wrong login credentials
+    if (!returningUser) {
       res.status(400).json({
-        message: "Incorrect username or does not exist! Please try again.",
+        message: "Incorrect login credentials! Please try again.",
       });
       return;
     }
 
     // calls on the checkPassword function in the User model to compare input password to stored one
-    const validPassword = await dbUser.checkPassword(req.body.password);
+    const validPassword = await returningUser.checkPassword(req.body.password);
 
-    // if the password is not valid, tell user it is either incorrect or username does not exist
+    // if the password is not valid, tell user they have the wrong login credentials
     if (!validPassword) {
       res.status(400).json({
-        message:
-          "Incorrect password or username does not exist! Please try again.",
+        message: "Incorrect login credentials! Please try again.",
       });
       return;
     }
 
-    // save the session and return the user as being logged in
+    // save the session using the user's username and id, and return the user as being logged in
     req.session.save(() => {
-      req.session.loggedIn = true;
+      req.session.username = returningUser.username;
+      req.session.user_id = returningUser.id;
+      req.session.logged_in = true;
 
-      res.status(200).json({ user: dbUser, message: "You are now logged in!" });
+      res.status(200).json({
+        user: returningUser,
+        message: "Welcome back! You are now logged in!",
+      });
     });
   } catch (error) {
     console.log(error);
@@ -64,7 +73,7 @@ router.post("login", async (req, res) => {
 
 // logout user if they are logged in; remove current session
 router.post("/logout", (req, res) => {
-  if (req.session.loggedIn) {
+  if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();
     });
