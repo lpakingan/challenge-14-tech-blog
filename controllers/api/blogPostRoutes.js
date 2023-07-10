@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { BlogPost } = require("../../models");
+const { BlogPost, Comment } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 // create a new blog post
@@ -62,6 +62,23 @@ router.put("/:id", withAuth, async (req, res) => {
     res.status(200).json({ updatePost, message: "Successfully updated post!" });
   } catch (error) {
     res.status(400).json(error);
+  }
+});
+
+// get all blog posts
+router.get("/", async (req, res) => {
+  try {
+    const blogPostData = await BlogPost.findAll({
+      include: [
+        {
+          model: Comment,
+          attributes: ["comment_content", "post_id", "comment_date"],
+        },
+      ],
+    });
+    res.status(200).json(blogPostData);
+  } catch (error) {
+    res.status(500).json(error);
   }
 });
 

@@ -33,6 +33,7 @@ router.get("/post/:id", withAuth, async (req, res) => {
       include: [
         {
           model: Comment,
+          include: User,
         },
         {
           model: User,
@@ -42,10 +43,13 @@ router.get("/post/:id", withAuth, async (req, res) => {
     });
 
     const post = postData.get({ plain: true });
+    // get the comments property from the included comments model to get comments of the post
+    const comments = post.comments;
 
     // renders the single blogpost on its own page
     res.render("singlepost", {
       post,
+      comments,
       logged_in: req.session.logged_in,
     });
   } catch (error) {

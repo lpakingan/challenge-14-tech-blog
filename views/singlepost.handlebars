@@ -13,6 +13,29 @@
             </div>
         </div>
     </div>
+    
+    {{#if post.comments}}
+    <div class="container display-flex">
+        <h2>Comments</h2>
+    </div>
+        <div class="container display-flex">
+            <div class="box col-12">
+                {{#each post.comments}}
+                <section class="comment">
+                    <div class="card flex-column box-shadow p-5 bg-light">
+                        <p>
+                        {{comment_content}}
+                        <br>
+                        <br>
+                        {{post.user.username}}, {{format_date comment_date}}
+                        </p>
+                    </div>
+                </section>
+                {{/each}}
+            </div>
+        </div>
+  {{/if}}
+
 
     <div class="container display-flex box col-6">
     <form class="form newComment-form">
