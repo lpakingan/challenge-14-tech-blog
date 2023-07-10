@@ -9,10 +9,7 @@
 </head>
 
 <body>
-  <header class="display-flex justify-space-between p-2">
-    <h1>
-      The Tech Blog
-    </h1>
+  <header>
     {{!-- if not logged in, show the user the login button --}}
     {{#if logged_in}}
     <nav>
@@ -27,6 +24,9 @@
         <a href="/login" id="login">Login</a>
     </nav>
     {{/if}}
+    <h1>
+      The Tech Blog
+    </h1>
   </header>
   <main>
     {{{ body }}}
@@ -35,11 +35,11 @@
       
   </footer>
 
-  {{!-- if not logged in, attach the login functionality --}} 
+  {{!-- if logged in, attach the logout functionality --}} 
   {{#if logged_in}}
   <script src="../../public/js/logout.js"></script>
   {{else}}
-  {{!-- if logged in, attach the logout functionality --}} 
+  {{!-- if logged in, attach the login functionality --}} 
   <script src="../../public/js/login.js"></script>
   {{/if}}
 </body>
