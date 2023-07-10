@@ -25,18 +25,7 @@ const newPostHandler = async (event) => {
   }
 };
 
-// handles redirecting user to the new post page
-const newPostRedirect = async (event) => {
-  event.preventDefault();
-
-  document.location.replace("/dashboard/new");
-};
-
 // event listeners for getting form information once submit is clicked
 document
   .querySelector(".newPost-form")
   .addEventListener("submit", newPostHandler);
-
-document
-  .querySelector("#newPost-button")
-  .addEventListener("click", newPostRedirect);
