@@ -44,7 +44,7 @@ router.get("/blogpost/:id", withAuth, async (req, res) => {
     const post = postData.get({ plain: true });
 
     // renders the single blogpost on its own page
-    res.render("individual-post", {
+    res.render("singlepost", {
       post,
       logged_in: req.session.logged_in,
     });

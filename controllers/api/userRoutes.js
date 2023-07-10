@@ -38,7 +38,7 @@ router.post("/login", async (req, res) => {
     // if the username is not found, tell user they have the wrong login credentials
     if (!returningUser) {
       res.status(400).json({
-        message: "Incorrect login credentials! Please try again.",
+        message: "User not found. Please try again!",
       });
       return;
     }
