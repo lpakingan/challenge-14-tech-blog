@@ -3,7 +3,7 @@ const { User, BlogPost, Comment } = require("../models");
 const withAuth = require("../utils/auth");
 
 // gets all posts that are stored and shows them on the homepage
-router.get("/", withAuth, async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const blogData = await BlogPost.findAll({
       include: [

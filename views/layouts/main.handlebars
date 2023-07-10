@@ -20,9 +20,7 @@
         <a href='../dashboard.handlebars' id="dashboard">Dashboard</a>
         <a href='../login.handlebars' id="login">Login</a>
     </nav>
-    {{/if}}
-    {{!-- if logged in, show the user a logout button --}}
-    {{#if logged_in}}
+    {{else}}
     <nav>
         <a href='../homepage.handlebars' id="homepage">Home</a>
         <a href='../dashboard.handlebars' id="dashboard">Dashboard</a>
@@ -39,12 +37,12 @@
 
   {{!-- if not logged in, attach the login functionality --}} 
   {{#if !logged_in}}
-  <script src="/js/login.js"></script>
+  <script src="../../public/js/login.js"></script>
   {{/if}}
 
   {{!-- if logged in, attach the logout functionality --}} 
   {{#if logged_in}}
-  <script src="/js/logout.js"></script>
+  <script src="../../public/js/logout.js"></script>
   {{/if}}
 </body>
 
