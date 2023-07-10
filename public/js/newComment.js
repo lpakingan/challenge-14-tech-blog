@@ -19,7 +19,7 @@ const newCommentHandler = async (event) => {
 
     // if post data goes through, replace the current page with the updated blog post's content
     if (response.ok) {
-      document.location.replace(`post/${post_id}`);
+      document.location.replace(`/post/${post_id}`);
     } else {
       alert("Failed to add comment post!");
     }
