@@ -1,5 +1,5 @@
 // handles the new post form input to crete a new post
-const newPostHandler = async (event) => {
+var newPostHandler = async (event) => {
   // prevents the browser from sending the form by default so it can instead be rendered by the code below
   event.preventDefault();
 

@@ -1,5 +1,5 @@
 // handles the deleting of a specific blog post
-const deletePostHandler = async (event) => {
+var deletePostHandler = async (event) => {
   // indexes into current post's url to get id of the post to delete
   const currentPostURL = window.location.href;
   const post_id = currentPostURL.slice(currentPostURL.lastIndexOf("/") + 1);

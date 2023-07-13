@@ -1,5 +1,5 @@
 // handles the edit post input for updating existing blog posts
-const editPostHandler = async (event) => {
+var editPostHandler = async (event) => {
   // prevents the browser from sending the form by default so it can instead be rendered by the code below
   event.preventDefault();
 

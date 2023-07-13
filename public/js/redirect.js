@@ -1,5 +1,5 @@
 // handles redirecting user to the new post page
-const newPostRedirect = async (event) => {
+var newPostRedirect = async (event) => {
   event.preventDefault();
 
   document.location.replace("/dashboard/new");

@@ -1,4 +1,4 @@
-const logout = async () => {
+var logout = async () => {
   // makes a post request to destroy the current session using the logout route in the user route
   const response = await fetch("/api/user/logout", {
     method: "POST",

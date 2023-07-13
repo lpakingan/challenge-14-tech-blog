@@ -1,5 +1,5 @@
 // handles the login form input to log in user
-const loginFormHandler = async (event) => {
+var loginFormHandler = async (event) => {
   // prevents the browser from sending the form by default so it can instead be rendered by the code below
   event.preventDefault();
 

@@ -1,5 +1,5 @@
 // handles the new comment form input to crete a new comment
-const newCommentHandler = async (event) => {
+var newCommentHandler = async (event) => {
   // prevents the browser from sending the form by default so it can instead be rendered by the code below
   event.preventDefault();
 

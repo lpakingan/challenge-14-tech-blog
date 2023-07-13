@@ -1,5 +1,5 @@
 // handles the sign up form input to create user
-const signupFormHandler = async (event) => {
+var signupFormHandler = async (event) => {
   event.preventDefault();
 
   // gathers the username and password input and trims excess blank space
