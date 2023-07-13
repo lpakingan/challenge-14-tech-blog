@@ -19,7 +19,9 @@ const signupFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace("/");
     } else {
-      alert("Failed to sign up.");
+      alert(
+        "Failed to sign up; please make sure you choose a valid username and a password length of 8 characters or greater!"
+      );
     }
   }
 };
